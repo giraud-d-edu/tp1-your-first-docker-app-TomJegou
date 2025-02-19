@@ -1,0 +1,19 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tp1
+    ports:
+      - "80:80"
+  db:
+    image: mysql:8.0.34
+    volumes:
+      - mysql_data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: "db"
+      MYSQL_USER: "tomyj"
+      MYSQL_PASSWORD: "password123"
+      MYSQL_ROOT_PASSWORD: "root"
+volumes:
+  mysql_data:
